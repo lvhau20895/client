@@ -1,0 +1,176 @@
+@import "/src/assets/scss/main.scss";
+
+.login {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.form {
+		position: relative;
+		width: 300px;
+		height: 350px;
+		background: $color-light;
+		border-radius: 10px;
+		padding: 15px;
+		animation: show 0.5s linear;
+		@keyframes show {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.title {
+			color: $color-black;
+			font-weight: bold;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		.group {
+			width: 100%;
+			height: 50px;
+			margin: 30px 0;
+			display: flex;
+
+			.icon {
+				width: 10%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-right: 10px;
+				svg {
+					font-size: 25px;
+					color: $color-main;
+				}
+			}
+
+			.control {
+				position: relative;
+				width: 90%;
+
+				input {
+					width: 100%;
+					height: 100%;
+					border: 2px solid rgba(0, 0, 0, 0.1);
+					border-radius: 5px;
+					outline: none;
+					padding: 0 10px;
+					caret-color: $color-main;
+					color: $color-gray;
+					font-weight: bold;
+					&:focus,
+					&:not(:placeholder-shown) {
+						border: 2px solid $color-main;
+						~ label {
+							top: 0;
+							left: 10px;
+							font-size: 10px;
+							background: $color-light;
+							color: $color-main;
+							padding: 0 4px;
+						}
+					}
+					&:not(:focus) {
+						border: 2px solid rgba(0, 0, 0, 0.1);
+						~ label {
+							color: $color-gray;
+						}
+					}
+				}
+
+				input.password {
+					padding-right: 40px;
+				}
+
+				label {
+					position: absolute;
+					top: 50%;
+					left: 15px;
+					transform: translateY((-50%));
+					color: $color-gray;
+					font-size: 12px;
+					font-weight: bold;
+					pointer-events: none;
+					transition: all 0.2s linear;
+				}
+
+				.showPassword {
+					position: absolute;
+					top: 50%;
+					right: 15px;
+					transform: translateY((-50%));
+					color: $color-gray;
+					width: 20px;
+					height: 20px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					user-select: none;
+					border: none;
+					background: transparent;
+					cursor: pointer;
+					svg {
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+		}
+
+		.button {
+			text-align: center;
+
+			button {
+				padding: 15px 30px;
+				border: 2px solid transparent;
+				border-radius: 5px;
+				outline: none;
+				background: $color-main-button;
+				color: $color-light;
+				font-weight: bold;
+				letter-spacing: 1px;
+				transition: all 0.1s linear;
+				cursor: pointer;
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
+
+		.help {
+			position: absolute;
+			bottom: 15px;
+			left: 15px;
+
+			span {
+				color: $color-gray;
+				font-size: 13px;
+
+				.link {
+					text-decoration: none;
+					color: $color-main;
+					font-weight: bold;
+					&:hover {
+						opacity: 0.8;
+					}
+				}
+			}
+
+			.forgot {
+				display: inline-block;
+				font-size: 13px;
+				font-weight: bold;
+				color: $color-main;
+				text-decoration: none;
+				margin-top: 5px;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
